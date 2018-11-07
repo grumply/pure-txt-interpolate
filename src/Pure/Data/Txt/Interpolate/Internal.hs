@@ -1,5 +1,5 @@
 {-# LANGUAGE TemplateHaskell #-}
-module Pure.Data.Txt.Interpolate.Internal (t) where
+module Pure.Data.Txt.Interpolate.Internal (i) where
 
 import Pure.Data.Txt (Txt)
 import qualified Pure.Data.Txt as Txt
@@ -12,15 +12,15 @@ import Language.Haskell.TH (Q,Exp,appE,reportError)
 import Language.Haskell.TH.Quote (QuasiQuoter(..))
 import Language.Haskell.Meta.Parse (parseExp)
 
-t :: QuasiQuoter
-t = QuasiQuoter {
+i :: QuasiQuoter
+i = QuasiQuoter {
     quoteExp  = toExp . parseNodes . decodeNewlines
   , quotePat  = err "pattern"
   , quoteType = err "type"
   , quoteDec  = err "declaration"
   }
   where
-    err name  = error ("Pure.Data.Txt.Interpolate.Internal.t: This QuasiQuoter can not be used as a " ++ name)
+    err name  = error ("Pure.Data.Txt.Interpolate.Internal.i: This QuasiQuoter can not be used as a " ++ name)
 
 toExp:: [Node] -> Q Exp
 toExp [] = [|""|]
