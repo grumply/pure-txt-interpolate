@@ -1,9 +1,8 @@
-
 { mkDerivation, base, pure-txt, haskell-src-meta, template-haskell, stdenv
 }:
 mkDerivation {
   pname = "pure-txt-interpolate";
-  version = "0.7.0.0";
+  version = "0.8.0.0";
   src = ./.;
   libraryHaskellDepends = [
     base pure-txt haskell-src-meta template-haskell
