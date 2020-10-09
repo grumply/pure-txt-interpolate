@@ -20,7 +20,7 @@ lines_ s =
     case Txt.span (/= '\n') s of
       (first, rest) ->
         case Txt.uncons rest of
-          Just ('\n', more) -> (first <> "\n") : lines_ rest
+          Just ('\n', more) -> (first <> "\n") : lines_ more
           _ -> first : lines_ rest
 
 removeLeadingEmptyLine :: [Txt] -> [Txt]
